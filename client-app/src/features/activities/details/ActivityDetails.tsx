@@ -8,18 +8,10 @@ interface IProps {
     setSelectedActivity: (activity: IActivity | null) => void;
 }
 
-const ActivityDetails: React.FC<IProps> = ({
-    activity,
-    setEditMode,
-    setSelectedActivity
-}) => {
+const ActivityDetails: React.FC<IProps> = ({ activity, setEditMode, setSelectedActivity }) => {
     return (
         <Card fluid>
-            <Image
-                src={`/assets/categoryImages/${activity.category}.jpg`}
-                wrapped
-                ui={false}
-            />
+            <Image src={`/assets/categoryImages/${activity.category}.jpg`} wrapped ui={false} />
             <Card.Content>
                 <Card.Header>{activity.title}</Card.Header>
                 <Card.Meta>
@@ -32,14 +24,14 @@ const ActivityDetails: React.FC<IProps> = ({
                     <Button
                         onClick={() => setEditMode(true)}
                         basic
-                        color="blue"
-                        content="Edit"
+                        color='blue'
+                        content='Edit'
                     ></Button>
                     <Button
                         onClick={() => setSelectedActivity(null)}
                         basic
-                        color="blue"
-                        content="Cancel"
+                        color='blue'
+                        content='Cancel'
                     ></Button>
                 </Button.Group>
             </Card.Content>

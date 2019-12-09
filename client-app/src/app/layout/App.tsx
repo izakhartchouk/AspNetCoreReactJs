@@ -8,9 +8,7 @@ import ActivityDashboard from "../../features/activities/dashboard/ActivityDashb
 
 const App = () => {
     const [activities, setActivities] = useState<IActivity[]>([]);
-    const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(
-        null
-    );
+    const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(null);
     const [editMode, setEditMode] = useState(false);
 
     const handleSelectActivity = (id: string) => {
@@ -30,10 +28,7 @@ const App = () => {
     };
 
     const handleEditActivity = (activity: IActivity) => {
-        setActivities([
-            ...activities.filter(a => a.id !== activity.id),
-            activity
-        ]);
+        setActivities([...activities.filter(a => a.id !== activity.id), activity]);
         setSelectedActivity(activity);
         setEditMode(false);
     };
@@ -43,16 +38,14 @@ const App = () => {
     };
 
     useEffect(() => {
-        axios
-            .get<IActivity[]>("http://localhost:5000/api/activities")
-            .then(response => {
-                let activities: IActivity[] = [];
-                response.data.forEach(activity => {
-                    activity.date = activity.date.split(".")[0];
-                    activities.push(activity);
-                });
-                setActivities(activities);
+        axios.get<IActivity[]>("http://localhost:5000/api/activities").then(response => {
+            let activities: IActivity[] = [];
+            response.data.forEach(activity => {
+                activity.date = activity.date.split(".")[0];
+                activities.push(activity);
             });
+            setActivities(activities);
+        });
     }, []);
 
     return (
