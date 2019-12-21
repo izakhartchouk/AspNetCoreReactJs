@@ -1,26 +1,26 @@
-import React from "react";
-import { Segment, Header, Item, Image, Button } from "semantic-ui-react";
-import { IActivity } from "../../../app/models/activity";
-import { observer } from "mobx-react-lite";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Segment, Header, Item, Image, Button } from 'semantic-ui-react';
+import { IActivity } from '../../../app/models/activity';
+import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
 
 const activityImageStyle = {
-    filter: "brightness(30%)"
+    filter: 'brightness(30%)'
 };
 
 const activityImageTextStyle = {
-    position: "absolute",
-    bottom: "5%",
-    left: "5%",
-    width: "100%",
-    height: "auto",
-    color: "white"
+    position: 'absolute',
+    bottom: '5%',
+    left: '5%',
+    width: '100%',
+    height: 'auto',
+    color: 'white'
 };
 
 const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({ activity }) => {
     return (
         <Segment.Group>
-            <Segment basic attached='top' style={{ padding: "0" }}>
+            <Segment basic attached='top' style={{ padding: '0' }}>
                 <Image
                     src={`/assets/categoryImages/${activity.category}.jpg`}
                     fluid
@@ -30,7 +30,7 @@ const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({ activity })
                     <Item.Group>
                         <Item>
                             <Item.Content>
-                                <Header size='huge' content={"Title"} style={{ color: "white" }} />
+                                <Header size='huge' content={'Title'} style={{ color: 'white' }} />
                                 <p>{activity.date}</p>
                                 <p>
                                     Hosted by <strong>Bob</strong>

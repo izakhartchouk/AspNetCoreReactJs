@@ -1,6 +1,6 @@
-import React from "react";
-import { Segment, Grid, Icon } from "semantic-ui-react";
-import { IActivity } from "../../../app/models/activity";
+import React from 'react';
+import { Segment, Grid, Icon } from 'semantic-ui-react';
+import { IActivity } from '../../../app/models/activity';
 
 const ActivityDetailedInfo: React.FC<{ activity: IActivity }> = ({ activity }) => {
     return (

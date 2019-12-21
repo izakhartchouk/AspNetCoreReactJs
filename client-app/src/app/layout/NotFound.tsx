@@ -1,6 +1,6 @@
-import React from "react";
-import { Segment, Button, Header, Icon } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Segment, Button, Header, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return (
