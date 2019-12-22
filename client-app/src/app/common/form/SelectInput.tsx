@@ -2,11 +2,9 @@ import React from 'react';
 import { FieldRenderProps } from 'react-final-form';
 import { FormFieldProps, Form, Label, Select } from 'semantic-ui-react';
 
-interface IProps extends FieldRenderProps<string, HTMLSelectElement>, FormFieldProps {}
+interface IProps extends FieldRenderProps<string, HTMLElement>, FormFieldProps {}
 
-const SelectInput = (props: IProps) => {
-    const { touched, error, width, input, placeholder, options } = props;
-
+const SelectInput: React.FC<IProps> = ({ touched, error, width, input, placeholder, options }) => {
     return (
         <Form.Field error={touched && !!error} width={width}>
             <Select
