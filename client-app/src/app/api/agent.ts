@@ -6,6 +6,22 @@ import { IUser, IUserFormValues } from '../models/user';
 
 axios.defaults.baseURL = 'http://localhost:7000/api';
 
+axios.interceptors.request.use(
+    config => {
+        const token = window.localStorage.getItem('jwt');
+
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+            return config;
+        }
+
+        return Promise.resolve(config);
+    },
+    (error: any) => {
+        return Promise.reject(error);
+    }
+);
+
 axios.interceptors.response.use(undefined, error => {
     if (error.message === 'Network Error' && !error.response) {
         toast.error('Network error - make sure API is running!');
@@ -25,7 +41,7 @@ axios.interceptors.response.use(undefined, error => {
         toast.error('Server error - check the terminal for more info!');
     }
 
-    throw error;
+    throw error.response;
 });
 
 const responseBody = (response: AxiosResponse) => response.data;
