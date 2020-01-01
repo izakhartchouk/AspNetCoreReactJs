@@ -1,5 +1,7 @@
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Errors;
 using Application.Interfaces;
 using Domain;
 using MediatR;
@@ -32,6 +34,11 @@ namespace Application.User
             public async Task<User> Handle(Query request, CancellationToken cancellationToken)
             {
                 var user = await _userManager.FindByNameAsync(_userAccessor.GetCurrentUsername());
+
+                if (user == null)
+                {
+                    throw new RestException(HttpStatusCode.Unauthorized);
+                }
 
                 return new User
                 {
