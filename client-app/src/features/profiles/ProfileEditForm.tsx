@@ -8,9 +8,12 @@ import { combineValidators, isRequired, composeValidators, hasLengthBetween } fr
 import { IProfile } from '../../app/models/profile';
 
 const validate = combineValidators({
-    displayName: isRequired({ message: 'The Display Name cannot be empty' }),
+    displayName: isRequired({ field: 'displayName', message: 'The Display Name cannot be empty' }),
     bio: composeValidators(
-        hasLengthBetween(0, 512)({ message: 'Biography should to be less than 512 characters' })
+        hasLengthBetween(
+            0,
+            512
+        )({ field: 'bio', message: 'Biography should to be less than 512 characters' })
     )()
 });
 

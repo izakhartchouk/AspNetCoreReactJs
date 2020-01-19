@@ -11,8 +11,7 @@ const DateInput: React.FC<IProps> = ({
     placeholder,
     date = false,
     time = false,
-    meta: touched,
-    error,
+    meta: { touched, error },
     ...rest
 }) => {
     return (
@@ -28,7 +27,7 @@ const DateInput: React.FC<IProps> = ({
                 {...rest}
             />
             {touched && error && (
-                <Label basic color='red'>
+                <Label basic color='red' style={{ marginTop: '5px' }}>
                     {error}
                 </Label>
             )}

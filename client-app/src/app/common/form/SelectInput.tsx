@@ -4,7 +4,13 @@ import { FormFieldProps, Form, Label, Select } from 'semantic-ui-react';
 
 interface IProps extends FieldRenderProps<string, HTMLElement>, FormFieldProps {}
 
-const SelectInput: React.FC<IProps> = ({ touched, error, width, input, placeholder, options }) => {
+const SelectInput: React.FC<IProps> = ({
+    width,
+    input,
+    placeholder,
+    options,
+    meta: { touched, error }
+}) => {
     return (
         <Form.Field error={touched && !!error} width={width}>
             <Select
@@ -14,7 +20,7 @@ const SelectInput: React.FC<IProps> = ({ touched, error, width, input, placehold
                 options={options}
             />
             {touched && error && (
-                <Label basic color='red'>
+                <Label basic color='red' style={{ marginTop: '5px' }}>
                     {error}
                 </Label>
             )}
