@@ -1,3 +1,8 @@
+export interface IActivityPagedCollection {
+    activities: IActivity[];
+    activityCount: number;
+}
+
 export interface IActivity {
     id: string;
     title: string;
