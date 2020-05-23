@@ -9,7 +9,7 @@
         }
     },
     "profiles": {
-        "IIS Express": {
+        "IIS Express - DEV": {
             "commandName": "IISExpress",
             "launchBrowser": true,
             "launchUrl": "weatherforecast",
@@ -17,7 +17,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }
         },
-        "API": {
+        "API - DEV": {
             "commandName": "Project",
             "launchBrowser": true,
             "launchUrl": "weatherforecast",
